@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO优化：网站描述和关键词 -->
+  <meta name="description" content="林泽宇的个人网站 - 展示专业技能、生活点滴和摄影作品">
+  <meta name="keywords" content="林泽宇,个人网站,简历,摄影,生活分享">
+  <meta name="author" content="林泽宇">
+  <title>林泽宇 - 个人主页</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 基础布局样式 */
+    html, body { height: 100%; }
+    body { min-height: 100vh; }
+    
+    /* 侧边导航激活状态样式 */
+    .side-nav-list li.active { background: var(--accent-color); color: #fff; }
+    
+    /* 移动端响应式设计 */
+    @media (max-width: 600px) {
+      /* 移动端侧边导航样式调整 */
+      .side-nav { 
+        top: 0 !important; 
+        left: 0 !important; 
+        transform: none !important; 
+        width: 100vw; 
+        border-radius: 0 0 10px 10px; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
+      }
+      .side-nav-list { display: flex; }
+      .side-nav-list li { display: inline-block; margin: 0 0.5rem; }
+      .container { margin-left: 0 !important; margin-top: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 左侧悬浮导航目录：页面导航菜单 -->
+  <nav class="side-nav minimized" id="sideNav">
+    <!-- 导航切换按钮：点击展开/收起侧边栏 -->
+    <div class="side-nav-toggle" id="sideNavToggle" title="展开/收起导航菜单">☰</div>
+    <!-- 导航菜单列表 -->
+    <ul class="side-nav-list">
+      <li data-target="home" class="active" data-lang="home">首页</li>
+      <li data-target="basic-info" data-lang="basicInfo">基本信息</li>
+      <li data-target="workspace" data-lang="workspace">工作空间</li>
+      <li data-target="myvideo" data-lang="myvideo">我的视频</li>
+      <li data-target="3d-works" data-lang="3dWorks">3D作品</li>
+      <li data-target="life" data-lang="life">我的生活</li>
+    </ul>
+  </nav>
+
+  <!-- 主内容容器 -->
+  <div class="container">
+    <main class="main-content">
+      <!-- 全屏视频背景区域 -->
+      <div class="fullscreen-bg">
+        <!-- 背景视频：自动播放、循环 -->
+        <video id="bgVideo" autoplay loop playsinline>
+          <source src="resource/6月20日 (1)(1).mp4" type="video/mp4">
+        </video>
+        <!-- 视频遮罩层：增强文字可读性 -->
+        <div class="bg-overlay"></div>
+        <!-- 视频静音切换按钮 -->
+        <button id="muteBtn" style="position:absolute;right:40px;bottom:40px;z-index:20;padding:10px 18px;border-radius:20px;background:rgba(0,0,0,0.4);color:#fff;border:none;cursor:pointer;font-size:1.1rem;">🔇 静音</button>
+        <!-- 欢迎内容区域：居中显示 -->
+        <div class="centered-welcome">
+          <h2 data-lang="welcomeTitle">欢迎来到我的个人网站</h2>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- 全局控制脚本：语言切换、主题切换等功能 -->
+  <script src="global-controls.js" defer></script>
+  
+  <!-- 页面特定脚本 -->
+  <script>
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      // 侧边栏导航交互功能
+      const navItems = document.querySelectorAll('.side-nav-list li');
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          // 移除所有导航项的激活状态
+          navItems.forEach(i => i.classList.remove('active'));
+          // 为当前点击的导航项添加激活状态
+          item.classList.add('active');
+          
+          // 根据导航目标进行页面跳转
+          if (item.getAttribute('data-target') === 'home') {
+            // 首页已经在当前页面，不需要跳转
+            return;
+          } else if (item.getAttribute('data-target') === 'basic-info') {
+            window.location.href = 'resume_education.html'; // 跳转到教育经历页面
+          } else if (item.getAttribute('data-target') === 'workspace') {
+            window.location.href = 'workspace.html'; // 跳转到工作空间页面
+          } else if (item.getAttribute('data-target') === 'myvideo') {
+            window.location.href = 'myvideo.html'; // 跳转到我的视频页面
+          } else if (item.getAttribute('data-target') === '3d-works') {
+            window.location.href = '3d-works.html'; // 跳转到3D作品展示页面
+          } else if (item.getAttribute('data-target') === 'life') {
+            window.location.href = 'life.html'; // 跳转到生活页面
+          }
+        });
+      });
+
+      // 视频静音按钮逻辑
+      const muteBtn = document.getElementById('muteBtn');
+      if (bgVideo && muteBtn) {
+        // 默认静音
+        bgVideo.muted = true;
+        muteBtn.textContent = '🔇 静音';
+        muteBtn.addEventListener('click', function() {
+          bgVideo.muted = !bgVideo.muted;
+          muteBtn.textContent = bgVideo.muted ? '🔇 静音' : '🔊 有声';
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

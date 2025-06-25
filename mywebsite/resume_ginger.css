@@ -1,0 +1,315 @@
+/* resume_ginger.css */
+
+/* --- FONT IMPORT --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* --- CSS VARIABLES (Compatible with styles.css) --- */
+:root {
+    /* 主色调定义 */
+    --primary-color: #2c3e50;      /* 主要文字颜色 */
+    --secondary-color: #3498db;    /* 次要颜色（链接、按钮等） */
+    --accent-color: #3498db;       /* 强调色 */
+    --accent-color-hover: #2980b9; /* 强调色悬停状态 */
+    
+    /* 文字颜色定义 */
+    --text-primary: #2c3e50;       /* 主要文字颜色 */
+    --text-secondary: #7f8c8d;     /* 次要文字颜色 */
+    
+    /* 背景颜色定义 */
+    --bg-primary: #ffffff;         /* 主背景色 */
+    --bg-secondary: #f8f9fa;       /* 次要背景色 */
+    --sidebar-bg: #f8f9fa;         /* 侧边栏背景色 */
+    
+    /* 其他颜色定义 */
+    --timeline-color: #e9ecef;     /* 时间线颜色 */
+    --border-color: #dee2e6;       /* 边框颜色 */
+    
+    /* Resume specific colors */
+    --bg-light: #f1f1f1;
+    --text-light: #000000;
+    --accent-light: #ff4f00;
+    --card-bg-light: #ffffff;
+    
+    --bg-dark: #000000;
+    --text-dark: #ffffff;
+    --accent-dark: #8B5CF6; /* A cool-toned purple, inspired by the reference image */
+    --card-bg-dark: #1a1a1a;
+}
+
+/* --- THEME STYLES --- */
+body.light-theme {
+    --bg-color: var(--bg-light);
+    --text-color: var(--text-light);
+    --accent-color: var(--accent-light);
+    --card-bg-color: var(--card-bg-light);
+}
+
+body.dark-theme {
+    --bg-color: var(--bg-dark);
+    --text-color: var(--text-dark);
+    --accent-color: var(--accent-dark);
+    --card-bg-color: var(--card-bg-dark);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- SIDE NAV (Updated to match styles.css exactly) --- */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* 侧边导航收起状态 */
+.side-nav.minimized {
+    transform: translateY(-50%) translateX(-80%);
+}
+
+/* 侧边导航列表样式 */
+.side-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 侧边导航项目样式 */
+.side-nav-list li {
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.side-nav-list li:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.side-nav-list li.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* --- MAIN LAYOUT --- */
+.resume-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 40px 40px 40px;
+    box-sizing: border-box;
+    transition: padding-left 0.3s ease;
+}
+
+/* --- HERO SECTION --- */
+.resume-hero {
+    margin-bottom: 100px;
+}
+.resume-hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -2px;
+}
+.resume-hero-title .accent {
+    color: var(--accent-color);
+}
+.resume-hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 20px;
+    color: #666;
+}
+body.dark-theme .resume-hero-subtitle {
+    color: #999;
+}
+
+/* --- RESUME CONTENT SECTION --- */
+.resume-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+}
+.content-title h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+.content-title p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.timeline-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--card-bg-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+.timeline-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: var(--accent-color);
+}
+.timeline-item .date {
+    color: #666;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 500;
+}
+body.dark-theme .timeline-item .date {
+    color: #999;
+}
+.timeline-item .desc {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- PAGE NAVIGATION --- */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 80px auto 0 auto;
+    gap: 20px;
+}
+.nav-arrow {
+    background: var(--card-bg-color);
+    border: 1px solid #ddd;
+    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-theme .nav-arrow {
+    border-color: #444;
+}
+
+.nav-arrow:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 79, 0, 0.3);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .resume-wrapper { 
+        padding: 80px 20px 20px 20px;
+    }
+    .side-nav { 
+        top: 0 !important; 
+        left: 0 !important; 
+        transform: none !important; 
+        width: 100vw; 
+        border-radius: 0 0 10px 10px; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
+    }
+    .side-nav-list { 
+        display: flex; 
+        flex-direction: row;
+    }
+    .side-nav-list li { 
+        display: inline-block; 
+        margin: 0 0.5rem; 
+        padding: 10px 15px;
+    }
+    .resume-hero-title { 
+        font-size: 3.5rem; 
+    }
+    .resume-content { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    .timeline-item {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .resume-wrapper { 
+        margin-left: 0 !important; 
+        margin-top: 60px; 
+        padding: 60px 15px 15px 15px;
+    }
+    .resume-hero-title { 
+        font-size: 2.5rem; 
+    }
+    .content-title p {
+        font-size: 1.5rem;
+    }
+    .timeline-item h3 {
+        font-size: 1.2rem;
+    }
+    .timeline-item .desc {
+        font-size: 1rem;
+    }
+}
+
+/* 右上角按钮容器及按钮样式优化 */
+.top-right-controls {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  z-index: 3000;
+  display: flex;
+  gap: 12px;
+}
+.top-right-controls button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  background: var(--bg-secondary, #f8f9fa);
+  color: var(--primary-color, #2c3e50);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  transition: all 0.2s;
+}
+.top-right-controls button:hover {
+  background: var(--accent-color, #3498db);
+  color: #fff;
+} 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林泽宇 - 我的生活</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 左上角返回按钮：返回首页 -->
+    <div class="top-left-controls">
+        <a href="index.html" class="home-button" data-lang="home">首页</a>
+    </div>
+    
+    <!-- 左侧悬浮导航目录：生活内容导航菜单 -->
+    <nav class="side-nav minimized" id="sideNav">
+        <!-- 导航菜单展开/收起按钮 -->
+        <div class="side-nav-toggle" id="sideNavToggle">☰</div>
+        <!-- 导航菜单列表 -->
+        <ul class="side-nav-list">
+            <!-- 首页导航项 -->
+            <li data-target="index.html" data-lang="home">首页</li>
+            <!-- 摄影导航项 -->
+            <li data-target="photo" data-lang="photo">摄影</li>
+            <!-- 做饭导航项 -->
+            <li data-target="cook" data-lang="cook">做饭</li>
+        </ul>
+    </nav>
+    
+    <!-- 主内容容器 -->
+    <div class="container">
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 摄影区域 -->
+            <section class="content-section" id="photo">
+                <h2 data-lang="photo">摄影</h2>
+                <p data-lang="photoDesc">记录生活中的美好瞬间。</p>
+                <!-- 进入摄影页面按钮 -->
+                <a href="life_photo.html" class="nav-button" data-lang="enterPhoto">进入摄影</a>
+            </section>
+            
+            <!-- 做饭区域 -->
+            <section class="content-section" id="cook">
+                <h2 data-lang="cook">做饭</h2>
+                <p data-lang="cookDesc">分享我的烹饪乐趣与美食。</p>
+                <!-- 进入做饭页面按钮 -->
+                <a href="life_cook.html" class="nav-button" data-lang="enterCook">进入做饭</a>
+            </section>
+        </main>
+    </div>
+    
+    <!-- 引入JavaScript脚本文件 -->
+    <script src="global-controls.js" defer></script>
+</body>
+</html> 

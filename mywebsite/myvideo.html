@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林泽宇 - 我的视频</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 左上角返回按钮：返回首页 -->
+    <div class="top-left-controls">
+        <a href="index.html" class="home-button" data-lang="home">首页</a>
+    </div>
+    <!-- 左侧悬浮导航目录：视频内容导航菜单 -->
+    <nav class="side-nav minimized" id="sideNav">
+        <div class="side-nav-toggle" id="sideNavToggle">☰</div>
+        <ul class="side-nav-list">
+            <li data-target="index.html" data-lang="home">首页</li>
+            <li data-target="myvideo" class="active" data-lang="myvideo">我的视频</li>
+        </ul>
+    </nav>
+    <!-- 主内容容器 -->
+    <div class="container">
+        <main class="main-content">
+            <section class="content-section" id="myvideo">
+                <h2 data-lang="myvideo">我的视频</h2>
+                <p data-lang="myvideoDesc">这里展示了我剪辑的所有视频。</p>
+                <div class="video-rows">
+                    <div class="video-row">
+                        <div class="video-right" style="width:100%;justify-content:center;">
+                            <video controls width="640">
+                                <source src="myvideo/6月25日 .mp4" type="video/mp4">
+                                您的浏览器不支持 video 标签。
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-row">
+                        <div class="video-right" style="width:100%;justify-content:center;">
+                            <video controls width="640">
+                                <source src="myvideo/6月24日.mp4" type="video/mp4">
+                                您的浏览器不支持 video 标签。
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-row">
+                        <div class="video-right" style="width:100%;justify-content:center;">
+                            <video controls width="640">
+                                <source src="myvideo/6月20日 (1)(1).mp4" type="video/mp4">
+                                您的浏览器不支持 video 标签。
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="global-controls.js" defer></script>
+</body>
+</html> 

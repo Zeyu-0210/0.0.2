@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林泽宇 - 实习经历</title>
+    <link rel="stylesheet" href="resume_ginger.css">
+</head>
+<body>
+
+    <nav class="side-nav minimized" id="sideNav">
+        <ul class="side-nav-list">
+            <li data-target="index.html" data-lang="home">首页</li>
+            <li data-target="resume_education.html" data-lang="education">教育经历</li>
+            <li data-target="resume_experience.html" class="active" data-lang="experience">实习经历</li>
+            <li data-target="resume_awards.html" data-lang="awards">奖项经历</li>
+        </ul>
+    </nav>
+
+    <div class="resume-wrapper">
+        <header class="resume-hero">
+            <h1 class="resume-hero-title">
+                REAL<br>
+                <span class="accent">WORLD</span> SKILLS
+            </h1>
+            <p class="resume-hero-subtitle" data-lang="experienceSubtitle">
+                我在不同行业的实习经验，将理论知识应用于实践，并取得了切实的业务成果。
+            </p>
+        </header>
+
+        <main class="resume-content">
+            <div class="content-title">
+                <h2 data-lang="experience">Our Services</h2>
+                <p data-lang="experience">实习经历</p>
+            </div>
+            <ul class="timeline-list">
+                <li class="timeline-item">
+                    <h3 data-lang="experienceTitle1">审计助理</h3>
+                    <span class="date">2025.03 - 2025.07</span>
+                    <p class="desc" data-lang="experienceDesc1">
+                        曾作为7人组审计助理，在一周内完成千万级企业的全面审计，底稿编制效率提高50%。负责财务报表审计、内部控制测试、风险评估等工作。
+                    </p>
+                </li>
+                <li class="timeline-item">
+                    <h3 data-lang="experienceTitle2">营业部实习生</h3>
+                    <span class="date">2023.01 - 2023.02</span>
+                    <p class="desc" data-lang="experienceDesc2">
+                        作为客户联络人，协助导师两周内完成规模八百万基金募集，月回报率7%，超7成客户表示愿意追投。
+                    </p>
+                </li>
+                <li class="timeline-item">
+                    <h3 data-lang="experienceTitle3">经理助理</h3>
+                    <span class="date">2022.06 - 2022.09</span>
+                    <p class="desc" data-lang="experienceDesc3">
+                        接待优先客户，负责活动项目安排，任职期间客流量从每月1400人次提高到2300人次，营业额增长146%。
+                    </p>
+                </li>
+            </ul>
+        </main>
+
+        <div class="page-navigation">
+            <button class="nav-arrow" id="prev-page" aria-label="Previous Page">&#10094;</button>
+            <button class="nav-arrow" id="next-page" aria-label="Next Page">&#10095;</button>
+        </div>
+    </div>
+    
+    <script src="global-controls.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = ['resume_education.html', 'resume_experience.html', 'resume_awards.html'];
+            let currentPageIndex = 1; // Experience is the second page
+
+            // Side navigation - 使用与index页面相同的交互逻辑
+            const sideNav = document.getElementById('sideNav');
+
+            // 鼠标悬停时展开侧边栏
+            sideNav.addEventListener('mouseenter', () => {
+                sideNav.classList.remove('minimized');
+            });
+
+            // 鼠标离开时收起侧边栏
+            sideNav.addEventListener('mouseleave', () => {
+                sideNav.classList.add('minimized');
+            });
+
+            // 导航项点击事件
+            document.querySelectorAll('.side-nav-list li').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // 移除所有导航项的激活状态
+                    document.querySelectorAll('.side-nav-list li').forEach(i => i.classList.remove('active'));
+                    // 为当前点击的导航项添加激活状态
+                    item.classList.add('active');
+                    
+                    // 页面跳转
+                    window.location.href = e.currentTarget.getAttribute('data-target');
+                });
+            });
+
+            // Arrow navigation
+            document.getElementById('prev-page').addEventListener('click', () => {
+                const newIndex = (currentPageIndex - 1 + pages.length) % pages.length;
+                window.location.href = pages[newIndex];
+            });
+
+            document.getElementById('next-page').addEventListener('click', () => {
+                const newIndex = (currentPageIndex + 1) % pages.length;
+                window.location.href = pages[newIndex];
+            });
+
+             // Keyboard navigation
+             document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    document.getElementById('prev-page').click();
+                } else if (e.key === 'ArrowRight') {
+                    document.getElementById('next-page').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

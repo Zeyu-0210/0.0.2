@@ -1,0 +1,239 @@
+/* resume_dark.css */
+
+/* General Body Styles */
+body.dark-theme {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+.dark-header {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    background-color: #fff; /* Placeholder for icon */
+}
+
+.dark-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.dark-nav a:hover {
+    color: #a78bfa; /* Light purple for hover */
+}
+
+.cta-button {
+    background-color: #8b5cf6; /* Purple */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #7c3aed;
+}
+
+/* Main Content */
+.main-content {
+    text-align: center;
+    padding: 80px 40px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.about-us-tag {
+    display: inline-block;
+    background-color: #374151; /* Dark gray */
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #d1d5db; /* Light gray */
+    max-width: 600px;
+    margin: 20px auto 40px auto;
+}
+
+/* Resume Section */
+.resume-section-dark {
+    margin-top: 60px;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resume-timeline-dark {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid #4b5563; /* Gray border */
+    position: relative;
+}
+
+.resume-timeline-dark li {
+    padding-left: 30px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.resume-timeline-dark li::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #8b5cf6;
+    border: 2px solid #000;
+}
+
+.timeline-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.timeline-date {
+    font-size: 1rem;
+    color: #9ca3af; /* Lighter gray */
+    margin: 5px 0;
+}
+
+.timeline-desc {
+    font-size: 1.1rem;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* Page Navigation */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+}
+
+.nav-arrow {
+    background: none;
+    border: 1px solid #4b5563;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+.page-indicator-dark {
+    display: flex;
+    gap: 10px;
+}
+
+.page-dot-dark {
+    width: 12px;
+    height: 12px;
+    background-color: #4b5563;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-dot-dark.active {
+    background-color: #8b5cf6;
+}
+
+/* Footer Links */
+.footer-links {
+    margin-top: 80px;
+    padding-bottom: 40px;
+}
+
+.use-for-free {
+    display: inline-flex;
+    align-items: center;
+    background-color: #8b5cf6;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.use-for-free:hover {
+    background-color: #7c3aed;
+}
+
+.use-for-free-icon {
+    margin-left: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dark-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .page-navigation {
+        flex-direction: column;
+        gap: 20px;
+    }
+} 

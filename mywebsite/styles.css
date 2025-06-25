@@ -1,0 +1,955 @@
+/* ==================== 全局样式变量定义 ==================== */
+:root {
+    /* 主色调定义 */
+    --primary-color: #2c3e50;      /* 主要文字颜色 */
+    --secondary-color: #3498db;    /* 次要颜色（链接、按钮等） */
+    --accent-color: #3498db;       /* 强调色 */
+    --accent-color-hover: #2980b9; /* 强调色悬停状态 */
+    
+    /* 文字颜色定义 */
+    --text-primary: #2c3e50;       /* 主要文字颜色 */
+    --text-secondary: #7f8c8d;     /* 次要文字颜色 */
+    
+    /* 背景颜色定义 */
+    --bg-primary: #ffffff;         /* 主背景色 */
+    --bg-secondary: #f8f9fa;       /* 次要背景色 */
+    --sidebar-bg: #f8f9fa;         /* 侧边栏背景色 */
+    
+    /* 其他颜色定义 */
+    --timeline-color: #e9ecef;     /* 时间线颜色 */
+    --border-color: #dee2e6;       /* 边框颜色 */
+}
+
+/* ==================== 深色主题样式变量 ==================== */
+[data-theme="dark"] {
+    /* 深色主题主色调 */
+    --primary-color: #ecf0f1;      /* 深色主题主要文字颜色 */
+    --secondary-color: #3498db;    /* 深色主题次要颜色 */
+    --text-color: #ecf0f1;         /* 深色主题文字颜色 */
+    --bg-color: #2c3e50;           /* 深色主题背景色 */
+    --sidebar-bg: #34495e;         /* 深色主题侧边栏背景色 */
+    --timeline-color: #2c3e50;     /* 深色主题时间线颜色 */
+    --border-color: #4a6278;       /* 深色主题边框颜色 */
+    --accent-color: #3498db;       /* 深色主题强调色 */
+    --accent-color-hover: #2980b9; /* 深色主题强调色悬停状态 */
+    --text-primary: #ecf0f1;       /* 深色主题主要文字颜色 */
+    --text-secondary: #bdc3c7;     /* 深色主题次要文字颜色 */
+    --bg-primary: #2c3e50;         /* 深色主题主背景色 */
+    --bg-secondary: #34495e;       /* 深色主题次要背景色 */
+}
+
+/* ==================== 全局重置样式 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================== 基础页面样式 ==================== */
+html, body {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+/* ==================== 主容器样式 ==================== */
+.container {
+    margin-left: 60px;
+    transition: margin-left 0.3s;
+    max-width: 900px;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: calc(60px + (100vw - 900px) / 2);
+    /* 侧边栏宽度+居中 */
+}
+
+/* ==================== 侧边栏样式 ==================== */
+.sidebar {
+    flex: 0 0 300px;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== 个人信息区域样式 ==================== */
+.profile {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* 头像样式 */
+.avatar {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+    object-position: center;
+    background: #fff;
+}
+
+/* 姓名样式 */
+.name {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== 信息区域样式 ==================== */
+.info-section {
+    margin-bottom: 2rem;
+}
+
+.info-section h2 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* 信息列表样式 */
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    margin-bottom: 0.5rem;
+}
+
+.info-list span {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* 自我评价文本样式 */
+.self-eval {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* ==================== 主题切换按钮样式 ==================== */
+.theme-switch {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.theme-switch button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-switch button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ==================== 主要内容区域样式 ==================== */
+.main-content {
+    flex: 1;
+}
+
+/* 内容区域卡片样式 */
+.content-section {
+    margin-bottom: 2rem;
+    background-color: var(--sidebar-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* ==================== 时间线样式 ==================== */
+.timeline {
+    position: relative;
+}
+
+/* 时间线竖线 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-color);
+}
+
+/* 时间线项目样式 */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 时间线圆点 */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+
+/* 时间线头部样式 */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-header h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* 时间线日期样式 */
+.date {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* 时间线内容样式 */
+.timeline-content {
+    color: var(--text-color);
+}
+
+.timeline-content .position {
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content .details {
+    font-size: 0.95rem;
+}
+
+/* ==================== 技能列表样式 ==================== */
+.skills-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skills-list li {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skills-list li:hover {
+    transform: translateY(-3px);
+}
+
+/* ==================== 响应式设计 ==================== */
+/* 大屏幕适配 */
+@media (max-width: 1000px) {
+    .container {
+        max-width: 100vw;
+        margin-left: 60px;
+        margin-right: 0;
+    }
+}
+
+/* 中等屏幕适配 */
+@media (max-width: 900px) {
+    .container {
+        margin-left: 0;
+        padding: 1rem;
+        max-width: 100vw;
+    }
+}
+
+/* ==================== 悬浮侧边导航样式 ==================== */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* 侧边导航收起状态 */
+.side-nav.minimized {
+    transform: translateY(-50%) translateX(-80%);
+}
+
+/* 侧边导航列表样式 */
+.side-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 侧边导航项目样式 */
+.side-nav-list li {
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.side-nav-list li:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.side-nav-list li.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* ==================== 主内容虚化效果 ==================== */
+.content-section.blur {
+    filter: blur(3px) grayscale(0.5) opacity(0.5);
+    pointer-events: none;
+    transition: filter 0.2s;
+}
+
+/* ==================== 左上角返回按钮样式 ==================== */
+.top-left-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: var(--accent-color-hover);
+}
+
+/* ==================== 右上角控件样式 ==================== */
+.top-right-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.top-right-controls button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.top-right-controls button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ==================== 首页欢迎页面特定样式 ==================== */
+.welcome-text {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.welcome-text h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.welcome-text p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* 内容区域样式 */
+.section-content {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.section-content h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.section-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* 导航按钮样式 */
+.nav-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin-top: 1rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== 深色模式下的阴影调整 ==================== */
+[data-theme="dark"] .welcome-text,
+[data-theme="dark"] .section-content {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .nav-button:hover {
+    background-color: #34495e;
+}
+
+/* ==================== 头像和名字样式 ==================== */
+.profile .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.profile .name {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* 深色模式下的头像效果 */
+[data-theme="dark"] .profile .avatar {
+    border-color: var(--secondary-color);
+}
+
+/* ==================== 全屏视频背景样式 ==================== */
+.fullscreen-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.fullscreen-bg video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+}
+
+/* 视频遮罩层 */
+.bg-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+/* 居中欢迎文字 */
+.centered-welcome {
+    position: absolute;
+    top: calc(50% - 200px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.centered-welcome h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.explore-btn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.explore-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 保证导航和功能区在最上层 */
+.top-right-controls, .side-nav {
+    z-index: 1001; /* Ensure controls are above overlay */
+}
+.container, .main-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* 全屏摄影滚动区样式 */
+.photo-slider-container {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.photo-slider-rows {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    justify-content: center;
+}
+
+.photo-slider-row {
+    height: auto;
+    max-height: 33vh;
+}
+
+.photo-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.photo-tile {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 70px;
+    border: none;
+    object-fit: cover;
+    object-position: center;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(44,62,80,0.18), 0 1.5px 4px rgba(44,62,80,0.10);
+    transition: box-shadow 0.2s, filter 0.2s, opacity 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.photo-tile.highlight {
+    box-shadow: 0 8px 32px rgba(52,152,219,0.25), 0 2px 8px rgba(44,62,80,0.18);
+    transform: scale(1.08);
+}
+
+.photo-tile.dimmed {
+    opacity: 0.3;
+    filter: grayscale(0.7) blur(1px);
+}
+
+.photo-page {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fff;
+}
+
+.photo-title {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'STSong', 'SimSun', serif;
+    font-weight: normal;
+}
+
+.photo-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 150px;
+}
+
+.photo-row-outer {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    height: 140px;
+    margin-bottom: 3vh;
+}
+
+.photo-row-zone {
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 140px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.left-zone {
+    left: 0;
+    border-radius: 0 10px 10px 0;
+    background: linear-gradient(to right, #fff 80%, transparent);
+}
+
+.right-zone {
+    right: 0;
+    border-radius: 10px 0 0 10px;
+    background: linear-gradient(to left, #fff 80%, transparent);
+}
+
+.photo-row {
+    overflow: hidden;
+    width: 100vw;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.photo-row-inner {
+    display: flex;
+    align-items: center;
+    will-change: transform;
+}
+
+.row-offset {
+    margin-top: 100px;
+}
+
+.row-offset.row-1 {
+    margin-top: 165px;
+}
+
+.row-offset.row-2 {
+    margin-top: -70px;
+}
+
+#img-preview-modal {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-preview-img {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    background: #fff;
+}
+
+.img-preview-mask {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+#img-preview-modal img {
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* ==================== Photography Page Styles ==================== */
+
+/* This class should be added to the <body> tag on life_photo.html */
+.photo-page-body {
+    background-color: #000 !important;
+}
+
+.photo-container {
+    padding: 2rem 300px;
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+}
+
+.title-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 4rem 0;
+    height: 15rem; /* Set a fixed height to prevent layout shifts */
+}
+
+.photo-main-title {
+    font-size: clamp(3rem, 10vw, 8rem); /* Responsive font size */
+    font-weight: 900;
+    text-align: center;
+    margin: 0; /* Reset margin as it's handled by title-container */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    font-family: 'Helvetica Neue', sans-serif;
+    position: relative;
+    z-index: 2; /* Ensure title is above canvas */
+}
+
+html[lang="en"] .photo-main-title {
+    font-size: clamp(2.5rem, 8vw, 6rem); /* Slightly smaller font size for English */
+}
+
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Canvas is behind the title */
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-auto-rows: 190px;
+    grid-auto-flow: dense; /* This helps fill in gaps */
+    gap: 1.5rem;
+    width: 100%;
+    min-height: calc(190px * 2 + 1.5rem); /* Set a minimum height for two rows */
+}
+
+.gallery-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gallery-nav {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    transition: all 0.3s ease;
+}
+
+.gallery-nav.prev {
+    left: -75px;
+}
+
+.gallery-nav.next {
+    right: -75px;
+}
+
+.gallery-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: #fff;
+}
+
+.gallery-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.grid-item {
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.25);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.grid-item:hover {
+    transform: scale(1.04);
+    box-shadow: 0 18px 35px rgba(255,255,255,0.1), 0 12px 12px rgba(255,255,255,0.08);
+    z-index: 10;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.grid-item:hover img {
+    transform: scale(1.15);
+}
+
+.grid-item.masked {
+    opacity: 0.4;
+    transform: scale(0.95);
+    filter: grayscale(50%);
+}
+
+/* ==================== Image Preview Modal ==================== */
+
+#img-preview-modal {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.img-preview-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.img-preview-mask {
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    z-index: 1;
+}
+
+/* ==================== 视频排版样式 ==================== */
+.video-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.video-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    background: var(--sidebar-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    align-items: center;
+}
+.video-left {
+    flex: 0 0 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-right {
+    flex: 1 1 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 900px) {
+    .video-row {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+    .video-left, .video-right {
+        width: 100%;
+        justify-content: center;
+    }
+} 

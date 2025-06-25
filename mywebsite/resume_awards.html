@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林泽宇 - 奖项经历</title>
+    <link rel="stylesheet" href="resume_ginger.css">
+</head>
+<body>
+
+    <nav class="side-nav minimized" id="sideNav">
+        <ul class="side-nav-list">
+            <li data-target="index.html" data-lang="home">首页</li>
+            <li data-target="resume_education.html" data-lang="education">教育经历</li>
+            <li data-target="resume_experience.html" data-lang="experience">实习经历</li>
+            <li data-target="resume_awards.html" class="active" data-lang="awards">奖项经历</li>
+        </ul>
+    </nav>
+
+    <div class="resume-wrapper">
+        <header class="resume-hero">
+            <h1 class="resume-hero-title">
+                PROVEN<br>
+                <span class="accent">ACHIEVE</span>MENTS
+            </h1>
+            <p class="resume-hero-subtitle" data-lang="awardsSubtitle">
+                在创业、学术和领导力方面获得的荣誉，这些是对我创新能力和综合素质的认可。
+            </p>
+        </header>
+
+        <main class="resume-content">
+            <div class="content-title">
+                <h2 data-lang="awards">Our Services</h2>
+                <p data-lang="awards">奖项与成就</p>
+            </div>
+            <ul class="timeline-list">
+                <li class="timeline-item">
+                    <h3 data-lang="awardsTitle1">港科大创业大赛</h3>
+                    <span class="date">2024.06 - 2024.09</span>
+                    <p class="desc" data-lang="awardsDesc1">
+                        境外赛道第12名，项目名称（全息交互技术应用）。在激烈的国际竞争中脱颖而出，展现了创新思维和技术实力。
+                    </p>
+                </li>
+                <li class="timeline-item">
+                    <h3 data-lang="awardsTitle2">澳门青年创业孵化中心</h3>
+                    <span class="date">2023.06 - 2023.09</span>
+                    <p class="desc" data-lang="awardsDesc2">
+                        项目驻澳门青年孵化中心主要负责人，长期成员。负责项目规划、团队管理、资源整合等工作。
+                    </p>
+                </li>
+                <li class="timeline-item">
+                    <h3 data-lang="awardsTitle3">巴斯大学管理学院奖学金</h3>
+                    <span class="date">2025.06 - 2027.01</span>
+                    <p class="desc" data-lang="awardsDesc3">
+                        曾获英国排名第二-巴斯大学管理学院-硕士奖学金，这是对学术成绩和综合能力的认可。
+                    </p>
+                </li>
+            </ul>
+        </main>
+
+        <div class="page-navigation">
+            <button class="nav-arrow" id="prev-page" aria-label="Previous Page">&#10094;</button>
+            <button class="nav-arrow" id="next-page" aria-label="Next Page">&#10095;</button>
+        </div>
+    </div>
+    
+    <script src="global-controls.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = ['resume_education.html', 'resume_experience.html', 'resume_awards.html'];
+            let currentPageIndex = 2; // Awards is the third page
+
+            // Side navigation - 使用与index页面相同的交互逻辑
+            const sideNav = document.getElementById('sideNav');
+
+            // 鼠标悬停时展开侧边栏
+            sideNav.addEventListener('mouseenter', () => {
+                sideNav.classList.remove('minimized');
+            });
+
+            // 鼠标离开时收起侧边栏
+            sideNav.addEventListener('mouseleave', () => {
+                sideNav.classList.add('minimized');
+            });
+
+            // 导航项点击事件
+            document.querySelectorAll('.side-nav-list li').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // 移除所有导航项的激活状态
+                    document.querySelectorAll('.side-nav-list li').forEach(i => i.classList.remove('active'));
+                    // 为当前点击的导航项添加激活状态
+                    item.classList.add('active');
+                    
+                    // 页面跳转
+                    window.location.href = e.currentTarget.getAttribute('data-target');
+                });
+            });
+
+            // Arrow navigation
+            document.getElementById('prev-page').addEventListener('click', () => {
+                const newIndex = (currentPageIndex - 1 + pages.length) % pages.length;
+                window.location.href = pages[newIndex];
+            });
+
+            document.getElementById('next-page').addEventListener('click', () => {
+                const newIndex = (currentPageIndex + 1) % pages.length;
+                window.location.href = pages[newIndex];
+            });
+
+             // Keyboard navigation
+             document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    document.getElementById('prev-page').click();
+                } else if (e.key === 'ArrowRight') {
+                    document.getElementById('next-page').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
