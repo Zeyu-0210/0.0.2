@@ -1,0 +1,3 @@
+# This file is used to create a new commit to trigger a Vercel rebuild.
+node_modules
+.env 
